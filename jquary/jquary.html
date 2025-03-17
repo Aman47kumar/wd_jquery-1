@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Validator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- <script defer src="script.js"></script> -->
+    <style>
+        /* Custom Styling */
+        .password-strength {
+            height: 10px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .weak { background-color: red; width: 33%; }
+        .medium { background-color: orange; width: 66%; }
+        .strong { background-color: green; width: 100%; }
+    </style>
+</head>
+<body class="container mt-5">
+    
+    <h2 class="text-center">Password Strength Checker</h2>
+    
+    <form id="passwordForm" class="p-4 border rounded shadow">
+        <!-- Password Input -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Enter Password</label>
+            <input type="password" id="one" class="form-control" placeholder="Enter a strong password" oninput="check()">
+            <span id="two"></span>
+        </div>
+        
+        <!-- Strength Indicator -->
+        <div id="passwordStrength" class="password-strength bg-light"></div>
+        <p id="passwordMessage" class="mt-2 text-muted"></p>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+    <!-- <footer>
+
+        <script type="text/javascript" src="jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="passChecker.jquery.js"></script>
+    </footer> -->
+    
+</body>
+<script>
+    function check (){
+        var password = document.getElementById("one").value
+        let length = password.length
+        if (length <=4){
+            document.getElementById("two").innerHTML = "week"
+             document.getElementById("two").style.color = "red"
+              document.getElementById("two").style.fontSize = "25px"
+        }
+        else if (length <=6){
+            document.getElementById("two").innerHTML = "medium"
+             document.getElementById("two").style.color = "orange"
+              document.getElementById("two").style.fontSize = "25px"
+        }
+        else{
+            document.getElementById("two").innerHTML = "strong"
+             document.getElementById("two").style.color = "green"
+              document.getElementById("two").style.fontSize = "25px"
+        }
+    }
+</script>
+</html>
